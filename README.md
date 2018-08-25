@@ -1,1 +1,6 @@
-## Fun stuff
+# LoL Ping Checker
+Yet another discord bot, cleaner, more efficient.<br/>
+Created by: Antwaun Tune <tuneantwaun@gmail.com><br/>
+Computer Science Student
+
+### Fairly simple algorithm that uses google charts to display your ping relative to the NA servers of League of Legends.
