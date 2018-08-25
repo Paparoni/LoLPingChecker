@@ -84,7 +84,7 @@ window.onload = function() {
         clearInterval(interval);
         var interval = setInterval(function() {
             ping("104.160.131.3")
-        }, 1000);
+        }, 1);
     }
 
     Button.addEventListener('click', NAstartPinging, false)
