@@ -1,5 +1,4 @@
 # LoL Ping Checker
-Yet another discord bot, cleaner, more efficient.<br/>
 Created by: Antwaun Tune <tuneantwaun@gmail.com><br/>
 Computer Science Student
 
