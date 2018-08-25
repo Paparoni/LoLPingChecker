@@ -3,23 +3,21 @@ window.onload = function() {
     var pingText = document.getElementById("pingText");
     var avgText = document.getElementById("avgPing");
     var pings = [];
+    var p = new Ping();
 
     function ping(SERVER) {
-        var http = new XMLHttpRequest();
-        http.onreadystatechange = function() {
-            if (http.readyState === http.HEADERS_RECEIVED) {
-                http.abort();
-                var totalPings = 0;
-                var ping = new Date - PING;
-                pingText.textContent = ping + " ms";
-                pings.push(ping);
-                for (var i = 0; i < pings.length; i++) {
-                    totalPings += pings[i];
-                }
-                var avgPing = Math.round(totalPings / pings.length);
-                avgText.textContent = "Average Ping: " + avgPing;
+        p.ping("http://" + SERVER, function(err, data) {
+            ping = data;
+            var totalPings = 0;
+            pingText.textContent = ping + " ms";
+            pings.push(ping);
+            for (var i = 0; i < pings.length; i++) {
+                totalPings += pings[i];
             }
-        };
+            var avgPing = Math.round(totalPings / pings.length);
+            avgText.textContent = "Average Ping: " + avgPing;
+            if (err) {}
+        });
         google.charts.load('current', {
             packages: ['corechart', 'line']
         });
@@ -49,11 +47,6 @@ window.onload = function() {
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
-        var PING = new Date;
-
-        http.open(SERVER, "/");
-        http.send(null);
-
     }
 
     function NAstartPinging() {
